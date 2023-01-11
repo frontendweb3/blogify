@@ -13,15 +13,15 @@ function Nav(props:NavComponent) {
     return (
         <div className="container flex flex-col items-center  sm:flex-col md:flex-row  lg:flex-row  xl:flex-row  2xl:flex-row justify-center sm:justify-center md:justify-between lg:justify-between xl:justify-between 2xl:justify-between mx-auto py-3 px-0 sm:px-0 md:px-3 lg:px-3 xl:px-3 2xl:px-3 my-4">
 
-            <a href="/" className="text-2xl uppercase text-center text-white">Blogify</a>
+            <a href="/blogify" className="text-2xl uppercase text-center text-white">Blogify</a>
 
             <nav className="gap-3 sm:gap-5 md:gap-10 lg:gap-10 xl:gap-10 2xl:gap-10 inline-flex justify-center sm:justify-center md:justify-right mt-5 sm:mt-5 md:mt-0 lg:mt-0 xl:mt-0 2xl:mt-0  items-start text-white text-left font-medium">
 
-                <Link href={"/"} className="m-0 text-xs sm:text-lg md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">Home</Link>
+                <Link href={"/blogify"} className="m-0 text-xs sm:text-lg md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">Home</Link>
                 <Link href={"/tag/design-tool"} className="m-0 text-xs sm:text-lg md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">Design Tools</Link>
                 <Link href={"/tag/daily-updates"} className="m-0 text-xs sm:text-lg md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">Daily Updates</Link>
                 <Link href={"/tag/tutorial"} className="m-0 text-xs sm:text-lg md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">Tutorials</Link>
-                <Link href={"/tag/about"} className="m-0 text-xs sm:text-lg md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">About</Link>
+                <Link href={"/pages/about"} className="m-0 text-xs sm:text-lg md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">About</Link>
 
             </nav>
 
