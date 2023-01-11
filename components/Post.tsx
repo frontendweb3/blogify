@@ -1,11 +1,9 @@
 import Link from "next/link";
 
 export default function Post(props:PostProps) {
-
-  console.log(props.title,' props.title');
   
-  let slug = props.title?.replaceAll(" ","-")
 
+  let slug = props.title?.replaceAll(" ","-")
   
 
     return (
