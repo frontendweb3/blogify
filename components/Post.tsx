@@ -1,9 +1,6 @@
 export default function Post(props:POSTProps) {
     return (
-      <>
-        <div
-          className={`inline-flex my-24 flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row 2xl:flex-row justify-center  items-center mx-auto  text-[rgba(35,46,82,1)]  transition-all`}
-        >
+        <div className={`inline-flex my-24 flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row 2xl:flex-row justify-center  items-center mx-auto  text-[rgba(35,46,82,1)]  transition-all`}>
           
           <div className="gap-3 px-0 sm:px-0 md:px-0 lg:px-3  xl:px-3  2xl:px-3  flex flex-col  items-start w-6/6 sm:w-6/6 md:w-[610px] lg:w-[610px] xl:w-[610px] 2xl:w-[610px]  mx-auto">
             
@@ -35,6 +32,7 @@ export default function Post(props:POSTProps) {
                 {props.text2}
               </p>
             </div>
+            
             <p
               className="text-lg font-normal leading-normal text-left m-0"
             >
@@ -44,9 +42,9 @@ export default function Post(props:POSTProps) {
           </div>
 
           <div style={{ "backgroundImage": `url(${props.image})` }} className={`rounded-lg bg-cover bg-no-repeat bg-center w-full sm:w-full md:w-full  lg:w-[300px] xl:w-[300px] 2xl:w-[300px] h-[210px] transition-all`} > </div>
+        
         </div>
 
-      </>
     );
   }
   interface POSTProps {
