@@ -9,12 +9,15 @@ function Header(props:HeaderComponent) {
 
       <div className="container flex flex-col mx-auto my-32 p-10">
         
-        <p className="text-sm sm:text-sm md:text-base lg:text-base xl:text-base 2xl:text-base font-semibold text-white uppercase inline mt-8">
+        {
+          props.tag?  <p className="text-sm sm:text-sm md:text-base lg:text-base xl:text-base 2xl:text-base font-semibold text-white uppercase inline mt-8">
           {props.tag?.replace("-"," ")}
-        </p>
+        </p> : " "
+        }
+        
 
         <p className="font-bold text-left text-white inline mt-4 text-[32px] sm:text-[42px] md:text-[48px] lg:text-[52px] xl:text-[52px] 2xl:text-[52px]">
-          Insights about my personal and work life, and the in-betweens
+          {props.title}
         </p>
 
       </div>
@@ -23,11 +26,13 @@ function Header(props:HeaderComponent) {
 }
 
 Header.defaultProps = {
-  tag:"👋 Hello"
+  tag:"👋 Hello",
+  title: " Insights about my personal and work life, and the in-betweens"
 };
 
 interface HeaderComponent {
   tag?: string;
+  title?: string;
 }
 
 export default Header;
