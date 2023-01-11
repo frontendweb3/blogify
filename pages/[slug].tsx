@@ -3,11 +3,13 @@ import BLOCKQUOTE from "../components/Blockquote";
 import PostHeader from "../components/PostHeader";
 import Image from 'next/image';
 
+
 // bg-[rgba(35,46,82,1)]
 
 // FaAngleLeft
 
 // https://source.unsplash.com/random/100x100
+
 
 
 export default function ReadingPage(props: ReadingPageProps) {
@@ -25,7 +27,7 @@ export default function ReadingPage(props: ReadingPageProps) {
                 <Image
                     height="250" width="500"
                     src="https://source.unsplash.com/random/500x150"
-                    alt={"hello"}
+                    alt="hello"
                     className="mx-auto h-[72%] w-[1424px]"
                 />
             </div>
@@ -33,7 +35,8 @@ export default function ReadingPage(props: ReadingPageProps) {
             <div className="my-12 prose prose-stone lg:prose-lg mx-auto">
 
                 <p className="mb-3 font-light text-gray-500 dark:text-gray-400 first-line:uppercase first-line:tracking-widest first-letter:text-7xl first-letter:font-bold first-letter:text-gray-900 dark:first-letter:text-gray-100 first-letter:mr-3 first-letter:float-left">Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and changes.</p>
-                <p className="font-light text-gray-500 dark:text-gray-400">Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate toil, and deploy changes with ease, with a complete audit trail for every change.</p>
+                <p className="font-light text-gray-500 dark:text-gray-400">
+                    Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate toil, and deploy changes with ease, with a complete audit trail for every change.</p>
 
 
                 <p className="mb-3 font-light text-gray-500 dark:text-gray-400 ">
@@ -45,7 +48,11 @@ export default function ReadingPage(props: ReadingPageProps) {
                 </p>
 
                 <div className="py-3.5 text-left font-normal rounded-bl-[10px] rounded-br-[10px] bg-[rgba(235,242,254,1)] text-[rgba(35,46,82,1)]">
-                    <img height="324px" width="1424px" className="cover"
+                    <img 
+                        height="324px"
+                        width="1424px" 
+                        className="cover"
+                        alt="Alt for images"
                         src="https://source.unsplash.com/random/100x100"
                     />
                     <p className="text-xs leading-normal text-center uppercase">
@@ -88,10 +95,6 @@ export default function ReadingPage(props: ReadingPageProps) {
 
 }
 
-ReadingPage.defaultProps = {
-    style: {},
-};
+ReadingPage.defaultProps = {};
 
-interface ReadingPageProps {
-    style: Object;
-}
+interface ReadingPageProps {}
