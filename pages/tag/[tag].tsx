@@ -10,22 +10,21 @@ import ReadMore from '../../components/ReadMore';
 
 function Tag() {
 
+    const { query } = useRouter() 
 
-    const {query} = useRouter<{query:{tag:string}}>() 
+    let item = query?.tag as string
 
-
-    let item:string = query?.tag?.replace("-"," ")
-
+    let slug:string = item?.replace("-"," ")
 
     return (
 
         <>
-            <Header tag={`${item}`} />
+            <Header tag={`${slug}`} />
 
             <main className='container mx-auto flex flex-col p-3'>
 
                 <p className="text-4xl inline capitalize font-bold text-left ml-0  sm:ml-0 md:ml-10 lg:ml-10 xl:ml-10 2xl:ml-24  my-16 leading-[normal] text-[rgba(35,46,82,1)]">
-                    {item}
+                    {slug}
                 </p>
 
                 <Post
