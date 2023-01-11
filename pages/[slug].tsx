@@ -72,6 +72,7 @@ export default function ReadingPage(props: ReadingPageProps) {
                     The toppings you may chose for that TV dinner pizza slice when you forgot to shop for foods, the paint you may slap on your face to impress the new boss is your business. But what about your daily bread? Not so fast, I'd say, there are some redeeming factors in favor of greeking text, as its use is merely the symptom of a worse problem to take into consideration. Not so fast, I'd say, there are some redeeming factors in favor of greeking text, as its use is merely the symptom of a worse problem to take into consideration.esign comps, layouts, wireframes—will your clients accept that you go about things the facile way? Authorities in our business will tell in no uncertain terms that Lorem Ipsum is that huge, huge no no to forswear forever.
                 </p>
             </div>
+          
             <div className="container my-20 flex flex-col justify-center mx-auto">
                 <h2 className="text-3xl font-light  text-gray-500 dark:text-gray-400">
                     Other interesting posts
