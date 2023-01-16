@@ -2,32 +2,38 @@ import Post from "../components/Post";
 import BLOCKQUOTE from "../components/Blockquote";
 import PostHeader from "../components/PostHeader";
 import Image from 'next/image';
-
-
-// bg-[rgba(35,46,82,1)]
-
-// FaAngleLeft
-
-// https://source.unsplash.com/random/100x100
-
+import posts from '../data/post';
+import dayjs from "dayjs";
+import { useRouter } from 'next/router'
 
 
 export default function ReadingPage(props: ReadingPageProps) {
 
+
+    const { query } = useRouter()
+
+    let item = query?.slug as string
+
+    let slug: string = item?.replaceAll("-", " ")
+
+   let getPost= posts.filter((v,i)=> v.title.toLowerCase() === slug )
+      
+    console.log(getPost)
+
     return (
         <>
             <PostHeader
-                title="10 Hilarious Cartoons That Depict Real-Life Problems of Programmers"
-                tag="Tutorials"
-                date="August 13, 2021"
-                authorName="Rajdeep Singh"
+                title={getPost[0].title}
+                tag={getPost[0].tags[0]}
+                date={dayjs(getPost[0].date).format("DD MMMM , YYYY")}
+                authorName={getPost[0].author}
             />
 
             <div className="my-10 mx-auto">
                 <Image
                     height="250" width="500"
-                    src="https://source.unsplash.com/random/500x150"
-                    alt="hello"
+                    src={getPost[0].image}
+                    alt={getPost[0].title}
                     className="mx-auto h-[72%] w-[1424px]"
                 />
             </div>
@@ -73,17 +79,27 @@ export default function ReadingPage(props: ReadingPageProps) {
                 </p>
             </div>
             <div className="container my-20 flex flex-col justify-center mx-auto">
+                
                 <h2 className="text-3xl font-light  text-gray-500 dark:text-gray-400">
                     Other interesting posts
                 </h2>
 
-                <Post
-                    tag="Tutorials"
-                    date="AUGust 13, 2021"
-                    title="10 Hilarious Cartoons That Depict Real-Life Problems of Programmers"
-                    description="Redefined the user acquisition and redesigned the onboarding experience, all within 3 working weeks."
-                    image="https://cdn.pixabay.com/photo/2022/12/16/15/53/island-7660016_960_720.jpg"
-                />
+                {
+                    posts.filter((v,i)=> i < 3).map(
+                        item => {
+
+                            let GetDate = dayjs(item.date).format("DD-MMM , YYYY")
+
+                            return <Post key={item.id}
+                                tag={item.tags[0]}
+                                date={GetDate.toString()}
+                                title={item.title}
+                                description={item.description}
+                                image={item.image}
+                            />
+                        }
+                    )
+                }
 
 
             </div>
