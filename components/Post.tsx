@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Post(props:PostProps) {
   
 
-  let slug = props.title?.replaceAll(" ","-")
+  let slug = props.title?.toLowerCase().replaceAll(" ","-")
   
 
     return (
@@ -24,8 +24,8 @@ export default function Post(props:PostProps) {
                 </div>
 
                 <div className="rounded-r-md px-3 pt-2 pb-2.5 bg-white gap-2.5 flex justify-center items-center font-medium w-[131px]">
-                  <time className="uppercase m-0 text-[13px] leading-[1.2]">
-                    {props.date}
+                  <time dateTime={props.date.toString()} className="uppercase m-0 text-[13px] leading-[1.2]">
+                    {props.date.toString()}
                   </time>
                 </div>
               </div>
@@ -55,7 +55,7 @@ export default function Post(props:PostProps) {
   }
   interface PostProps {
     tag: string;
-    date: string;
+    date: Date;
     title: string;
     description: string;
     image:string;
