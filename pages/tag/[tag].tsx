@@ -4,44 +4,45 @@ import Post from '../../components/Post';
 import Newsletter from '../../components/Newsletter';
 import { useRouter } from 'next/router'
 import ReadMore from '../../components/ReadMore';
-
-// sm: md: lg: xl: 2xl:
+import posts from '../../data/post';
+import dayjs from "dayjs";
 
 
 function Tag() {
 
-    const { query } = useRouter() 
+    const { query } = useRouter()
 
     let item = query?.tag as string
 
-    let slug:string = item?.replace("-"," ")
+    let slug: string = item?.replaceAll("-", " ")
+
+    function filterPosts(params: { category: string[]; }) {
+        return params.category[0].toLowerCase() === slug
+    }
 
     return (
 
         <>
-            <Header tag={`${slug}`} />
+            <Header title='hidden' tag={`${slug}`} />
 
             <main className='container mx-auto flex flex-col p-3'>
 
-                <p className="text-4xl inline capitalize font-bold text-left ml-0  sm:ml-0 md:ml-10 lg:ml-10 xl:ml-10 2xl:ml-24  my-16 leading-[normal] text-[rgba(35,46,82,1)]">
-                    {slug}
-                </p>
+                {
+                    posts.filter(filterPosts).map(
+                        item => {
 
-                <Post
-                    tag="Tutorials"
-                    date="August 13, 2021"
-                    title="10 Hilarious Cartoons That Depict Real-Life Problems of Programmers"
-                    description="Redefined the user acquisition and redesigned the onboarding experience, all within 3 working weeks."
-                    image="https://cdn.pixabay.com/photo/2022/12/16/15/53/island-7660016_960_720.jpg"
-                />
+                            let GetDate = dayjs(item.date).format("DD-MMM , YYYY")
 
-                <Post
-                    tag="Tutorials"
-                    date="August 13, 2021"
-                    title="10 Hilarious Cartoons That Depict Real-Life Problems of Programmers"
-                    description="Redefined the user acquisition and redesigned the onboarding experience, all within 3 working weeks."
-                    image="https://uortjlczjmucmpaqqhqm.supabase.co/storage/v1/object/public/firejet-converted-images/images/bd9f13ebb322ac0fa8c3d6174afbcd517a7da2c5.webp"
-                />
+                            return <Post key={item.id}
+                                tag={item.tags[0]}
+                                date={GetDate.toString()}
+                                title={item.title}
+                                description={item.description}
+                                image={item.image}
+                            />
+                        }
+                    )
+                }
 
                 <ReadMore />
 
