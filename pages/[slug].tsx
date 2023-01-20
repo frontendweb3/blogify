@@ -2,38 +2,26 @@ import Post from "../components/Post";
 import BLOCKQUOTE from "../components/Blockquote";
 import PostHeader from "../components/PostHeader";
 import Image from 'next/image';
-import posts from '../data/post';
+import data from '../data/post';
 import dayjs from "dayjs";
-import { useRouter } from 'next/router'
 
 
-export default function ReadingPage(props: ReadingPageProps) {
-
-
-    const { query } = useRouter()
-
-    let item = query?.slug as string
-
-    let slug: string = item?.replaceAll("-", " ")
-
-   let getPost= posts.filter((v,i)=> v.title.toLowerCase() === slug )
-      
-    console.log(getPost)
+export default function ReadingPage({post,posts}:ReadingPageProps) {
 
     return (
         <>
             <PostHeader
-                title={getPost[0].title}
-                tag={getPost[0].tags[0]}
-                date={dayjs(getPost[0].date).format("DD MMMM , YYYY")}
-                authorName={getPost[0].author}
+                title={post.title}
+                tag={post.tags[0]}
+                date={dayjs(post.date).format("DD MMMM , YYYY")}
+                authorName={post.author}
             />
 
             <div className="my-10 mx-auto">
                 <Image
                     height="250" width="500"
-                    src={getPost[0].image}
-                    alt={getPost[0].title}
+                    src={post.image}
+                    alt={post.title}
                     className="mx-auto h-[72%] w-[1424px]"
                 />
             </div>
@@ -85,7 +73,7 @@ export default function ReadingPage(props: ReadingPageProps) {
                 </h2>
 
                 {
-                    posts.filter((v,i)=> i < 3).map(
+                    posts.map(
                         item => {
 
                             let GetDate = dayjs(item.date).format("DD-MMM , YYYY")
@@ -108,9 +96,56 @@ export default function ReadingPage(props: ReadingPageProps) {
         </>
     );
 
-
 }
 
 ReadingPage.defaultProps = {};
 
-interface ReadingPageProps {}
+interface ReadingPageProps {
+    post:{
+        date: string;
+        title: string;
+        description: string;
+        image:string;
+        tags:string[];
+        author:string;
+        category:string[];
+        id:string;
+    }
+    posts:{
+        map(arg0: (item: any) => JSX.Element): import("react").ReactNode;
+        filter(arg0: (_: any, i: any) => boolean): unknown;
+        date: string;
+        title: string;
+        description: string;
+        image:string;
+        tags:string[];
+        author:string;
+        category:string[];
+        id:string;
+    }
+}
+
+export async function getStaticPaths() {
+
+    const paths = data.map((item) => ({
+      params: { slug: item.title.toLowerCase().replaceAll(" ", "-") },
+    }))
+
+    return {
+      paths: paths,
+      fallback: false,
+    }
+}
+  
+export async function getStaticProps(context: { params: { slug: string; }; }) {
+  
+    const { params: { slug } } = context
+  
+    const post = data.filter((item) => item.title.toLowerCase().replaceAll(" ", "-") === slug)    
+
+   const posts= data.filter((_,i)=> i < 3)
+
+    return {
+      props: { post:post[0],posts },
+    }
+}
