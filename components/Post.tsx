@@ -41,7 +41,7 @@ export default function Post(props:PostProps) {
             <Link href={`/${slug}`}><p className="text-lg font-normal leading-normal text-left m-0"> {props.description}</p> </Link>
           </div>
 
-          <Image src={props.image}  width={300}  height={210}  alt={props.title}
+          <Image src={`/blogify/${props.image}`}  width={300}  height={210}  alt={props.title}
             className={`rounded-lg bg-cover bg-no-repeat bg-center w-full sm:w-full md:w-full  lg:w-[300px] xl:w-[300px] 2xl:w-[300px] h-[210px] transition-all`} 
           />
         
