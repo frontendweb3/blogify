@@ -3,7 +3,7 @@
 You can start with blogify template. blogify is MIT open-source template.
 
 
-## demo
+## Demo
 
 ### Home page
 ![Home page](demo/home.png)
