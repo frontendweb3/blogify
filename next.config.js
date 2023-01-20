@@ -2,7 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images:{
-    domains: ["uortjlczjmucmpaqqhqm.supabase.co","picsum.photos","random.imagecdn.app","source.unsplash.com"]
+    domains: ["uortjlczjmucmpaqqhqm.supabase.co","picsum.photos","random.imagecdn.app","source.unsplash.com"],
+    unoptimized: true,
   },
   basePath: '/blogify',
 }
