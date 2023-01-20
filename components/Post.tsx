@@ -30,14 +30,14 @@ export default function Post(props:PostProps) {
                 </div>
               </div>
 
-              <Link href={slug}>
+              <Link href={`/${slug}`}>
                 <p className="font-bold text-left m-0 text-[28px] leading-[1.3]">
                   {props.title}
                 </p>
               </Link>
 
             </div>
-            <Link href={slug}>
+            <Link href={`/${slug}`}>
             <p
               className="text-lg font-normal leading-normal text-left m-0"
             >
@@ -55,7 +55,7 @@ export default function Post(props:PostProps) {
   }
   interface PostProps {
     tag: string;
-    date: Date;
+    date: string;
     title: string;
     description: string;
     image:string;
