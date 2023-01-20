@@ -4,7 +4,7 @@ const nextConfig = {
   images:{
     unoptimized: true,
   },
-  // basePath: '/blogify',
+   basePath: '/blogify',
 }
 
 module.exports = nextConfig
