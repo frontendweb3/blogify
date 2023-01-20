@@ -20,7 +20,7 @@ export default function ReadingPage({post,posts}:ReadingPageProps) {
             <div className="my-10 mx-auto">
                 <Image
                     height="250" width="500"
-                    src={post.image}
+                    src={`/blogify/${post.image}`}
                     alt={post.title}
                     className="mx-auto h-[72%] w-[1424px]"
                 />
