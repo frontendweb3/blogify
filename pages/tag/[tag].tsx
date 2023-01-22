@@ -2,8 +2,8 @@ import React from 'react';
 import Header from '../../components/Header';
 import Post from '../../components/Post';
 import Newsletter from '../../components/Newsletter';
-import ReadMore from '../../components/ReadMore';
-import data from '../../data/post';
+import ReadMore from '../../components/Pagination';
+import {posts as data} from '../../data/post';
 import dayjs from "dayjs";
 
 function Tag({posts , tag }:tagPageProps ) {
@@ -23,7 +23,7 @@ function Tag({posts , tag }:tagPageProps ) {
 
                             return <Post key={item.id}
                                 tag={item.tags[0]}
-                                date={GetDate.toString()}
+                                date={dayjs(item.date).format("DD MMMM , YYYY")}
                                 title={item.title}
                                 description={item.description}
                                 image={item.image}
