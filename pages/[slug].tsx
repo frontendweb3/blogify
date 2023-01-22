@@ -2,11 +2,11 @@ import Post from "../components/Post";
 import BLOCKQUOTE from "../components/Blockquote";
 import PostHeader from "../components/PostHeader";
 import Image from 'next/image';
-import data from '../data/post';
+import { posts as data } from '../data/post';
 import dayjs from "dayjs";
 
 
-export default function ReadingPage({post,posts}:ReadingPageProps) {
+export default function ReadingPage({ post, posts }: ReadingPageProps) {
 
     return (
         <>
@@ -42,9 +42,9 @@ export default function ReadingPage({post,posts}:ReadingPageProps) {
                 </p>
 
                 <div className="py-3.5 text-left font-normal rounded-bl-[10px] rounded-br-[10px] bg-[rgba(235,242,254,1)] text-[rgba(35,46,82,1)]">
-                    <img 
+                    <img
                         height="324px"
-                        width="1424px" 
+                        width="1424px"
                         className="cover"
                         alt="Alt for images"
                         src="https://source.unsplash.com/random/100x100"
@@ -67,7 +67,7 @@ export default function ReadingPage({post,posts}:ReadingPageProps) {
                 </p>
             </div>
             <div className="container my-20 flex flex-col justify-center mx-auto">
-                
+
                 <h2 className="text-3xl font-light  text-gray-500 dark:text-gray-400">
                     Other interesting posts
                 </h2>
@@ -101,51 +101,51 @@ export default function ReadingPage({post,posts}:ReadingPageProps) {
 ReadingPage.defaultProps = {};
 
 interface ReadingPageProps {
-    post:{
+    post: {
         date: string;
         title: string;
         description: string;
-        image:string;
-        tags:string[];
-        author:string;
-        category:string[];
-        id:string;
+        image: string;
+        tags: string[];
+        author: string;
+        category: string[];
+        id: string;
     }
-    posts:{
+    posts: {
         map(arg0: (item: any) => JSX.Element): import("react").ReactNode;
         filter(arg0: (_: any, i: any) => boolean): unknown;
         date: string;
         title: string;
         description: string;
-        image:string;
-        tags:string[];
-        author:string;
-        category:string[];
-        id:string;
+        image: string;
+        tags: string[];
+        author: string;
+        category: string[];
+        id: string;
     }
 }
 
 export async function getStaticPaths() {
 
     const paths = data.map((item) => ({
-      params: { slug: item.title.toLowerCase().replaceAll(" ", "-") },
+        params: { slug: item.title.toLowerCase().replaceAll(" ", "-") },
     }))
 
     return {
-      paths: paths,
-      fallback: false,
+        paths: paths,
+        fallback: false,
     }
 }
-  
-export async function getStaticProps(context: { params: { slug: string; }; }) {
-  
-    const { params: { slug } } = context
-  
-    const post = data.filter((item) => item.title.toLowerCase().replaceAll(" ", "-") === slug)    
 
-   const posts= data.filter((_,i)=> i < 3)
+export async function getStaticProps(context: { params: { slug: string; }; }) {
+
+    const { params: { slug } } = context
+
+    const post = data.filter((item) => item.title.toLowerCase().replaceAll(" ", "-") === slug)
+
+    const posts = data.filter((_, i) => i < 3)
 
     return {
-      props: { post:post[0],posts },
+        props: { post: post[0], posts },
     }
 }
