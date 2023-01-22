@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Image from 'next/image';
+import dayjs from "dayjs";
+
 export default function Post(props:PostProps) {
   
-
   let slug = props.title?.toLowerCase().replaceAll(" ","-")
   
-
     return (
         <div 
         className={`inline-flex my-24 flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row 2xl:flex-row justify-center  items-center mx-auto  text-[rgba(35,46,82,1)]  transition-all`}>
@@ -24,9 +24,9 @@ export default function Post(props:PostProps) {
 
                 </div>
 
-                <div className="rounded-r-md px-3 pt-2 pb-2.5 bg-white gap-2.5 flex justify-center items-center font-medium w-[131px]">
+                <div className="rounded-r-md px-3 pt-2 pb-2.5 bg-white gap-2.5 flex justify-center items-center font-medium ">
                   <time dateTime={props.date.toString()} className="uppercase m-0 text-[13px] leading-[1.2]">
-                    {props.date.toString()}
+                    {dayjs(props.date).format("DD MMMM , YYYY")}
                   </time>
                 </div>
               </div>
