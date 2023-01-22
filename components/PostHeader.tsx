@@ -1,13 +1,12 @@
 import React from "react";
-
 import { FaAngleLeft } from "react-icons/fa";
-
 import Nav from "./Nav";
-
+import Link from 'next/link';
 
 function Header(props: PostHeaderComponent) {
 
   return (
+    
     <header className="w-full flex flex-col py-5 bg-[rgba(35,46,82,1)]">
 
     <Nav />
@@ -16,9 +15,9 @@ function Header(props: PostHeaderComponent) {
         
         <div className="flex items-center text-center">
 
-          <a href="/" type="button" className=" text-black bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          <Link href="/blogify" type="button" className=" text-black bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             <FaAngleLeft />
-          </a>
+          </Link>
 
           <span className="mx-2 font-bold text-left text-white inline text-[10px] sm:text-[10px] md:text-[14px] lg:text-[14px] xl:text-[14px] 2xl:text-[16px]">
               {props.tag}
@@ -41,9 +40,7 @@ function Header(props: PostHeaderComponent) {
   );
 }
 
-Header.defaultProps = {
-  title: "👋 Hello"
-};
+Header.defaultProps = {};
 
 interface PostHeaderComponent {
   title?: string;
