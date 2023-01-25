@@ -6,16 +6,16 @@ You can start with blogify template. blogify is MIT open-source template.
 ## Demo
 
 ### Home page
-![Home page](demo/home.png)
+![Home page](./demo/home.png)
 
 ### List page
-![Home page](demo/list.png)
+![Home page](./demo/list.png)
 
 ### Reading page
-![Reading page](demo/reading.png)
+![Reading page](./demo/reading.png)
 
 ### Tag page
-![Tag page](demo/tag.png)
+![Tag page](./demo/tag.png)
 
 
 
