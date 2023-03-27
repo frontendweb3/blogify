@@ -1,8 +1,6 @@
 # Getting Started
 
-You can start with blogify template. blogify is MIT open-source template.
-
-
+Blogify is MIT open-source nextjs and tailwind css based template to build a blog with markdown.
 ## Demo
 
 ### Home page
@@ -16,7 +14,6 @@ You can start with blogify template. blogify is MIT open-source template.
 
 ### Tag page
 ![Tag page](demo/tag.png)
-
 
 
 ### Project folder
@@ -72,6 +69,7 @@ You can start with blogify template. blogify is MIT open-source template.
 ```bash
 
 ## Step 1
+
 git clone https://github.com/frontendweb3/blogify.git
 
 ## Step 2
@@ -87,3 +85,10 @@ pnpm dev
 # or
 yarn dev
 ```
+
+## Upcoming change
+- Adding content layer support
+- Search bar support
+- Adding dark mode theme support
+- SEO support 
+
