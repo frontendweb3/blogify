@@ -2,7 +2,7 @@ import React from "react";
 import { FaAngleLeft } from "react-icons/fa";
 import Nav from "./Nav";
 import Link from 'next/link';
-
+import Image from "next/image"
 function Header(props: PostHeaderComponent) {
 
   return (
@@ -15,7 +15,7 @@ function Header(props: PostHeaderComponent) {
 
         <div className="flex items-center text-center">
 
-          <Link href="/blogify" type="button" className=" text-black bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          <Link href="/" type="button" className=" text-black bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             <FaAngleLeft />
           </Link>
 
@@ -32,7 +32,18 @@ function Header(props: PostHeaderComponent) {
           {props.title}
         </h1>
 
-        <p className="font-bold text-left text-white inline mt-4 text-[10px] sm:text-[10px] md:text-[14px] lg:text-[14px] xl:text-[14px] 2xl:text-[16px]">Publish By {props.authorName}</p>
+
+        <div className="mb-2 flex w-full sm:items-center gap-x-5 sm:gap-x-3">
+
+
+          <div className="flex items-center flex-shrink-0">
+            <p className="font-bold text-left text-white inline text-[10px] sm:text-[10px] md:text-[14px] lg:text-[14px] xl:text-[14px] 2xl:text-[16px]">Publish By </p>
+            <Image width={32} height={32} className="h-8 w-8 mx-2 rounded-full" src="https://images.unsplash.com/photo-1669837401587-f9a4cfe3126e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80" alt="Image Description" />
+            <p className="font-bold text-left text-white inline text-[10px] sm:text-[10px] md:text-[14px] lg:text-[14px] xl:text-[14px] 2xl:text-[16px]">{props.authorName}</p>
+          </div>
+
+        </div>
+
 
       </div>
 
