@@ -34,16 +34,57 @@ export default defineConfig({
         path: "content/posts",
         fields: [
           {
-            type: "string",
-            name: "title",
             label: "Title",
+            name: "title",
+            type: "string",
             isTitle: true,
             required: true,
           },
           {
-            type: "rich-text",
-            name: "body",
+            label: 'Tags',
+            name: 'tags',
+            type: 'string',
+            list: true,
+          },
+          {
+            label: 'カテゴリ',
+            name: 'categories',
+            type: 'string',
+            list: false,
+            options: [
+              {
+                label: 'プログラミング',
+                value: 'programming',
+              },
+              {
+                label: 'DIY',
+                value: 'diy',
+              },
+              {
+                label: '電子工作',
+                value: 'electronics',
+              },
+              {
+                label: 'ガジェット',
+                value: 'gadget',
+              },
+            ],
+          },
+          {
+            label: "作成日",
+            name: "createdAt",
+            type: "datetime",
+          },
+          {
+            label: "アイキャッチ画像",
+            name: "imageEyeCatch",
+            type: "image",
+          },
+          {
             label: "Body",
+            name: "body",
+            type: "rich-text",
+            required: true,
             isBody: true,
           },
         ],
