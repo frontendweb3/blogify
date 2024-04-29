@@ -71,7 +71,6 @@ export default function ReadingPage({ post, posts }: ReadingPageProps) {
                 <h2 className="text-3xl font-light  text-gray-500 dark:text-gray-400">
                     Other interesting posts
                 </h2>
-
                 {
                     posts.map(
                         item => {
@@ -88,14 +87,9 @@ export default function ReadingPage({ post, posts }: ReadingPageProps) {
                         }
                     )
                 }
-
-
             </div>
-
-
         </>
     );
-
 }
 
 ReadingPage.defaultProps = {};
@@ -126,11 +120,9 @@ interface ReadingPageProps {
 }
 
 export async function getStaticPaths() {
-
     const paths = data.map((item) => ({
         params: { slug: item.title.toLowerCase().replaceAll(" ", "-") },
     }))
-
     return {
         paths: paths,
         fallback: false,
@@ -138,13 +130,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: { params: { slug: string; }; }) {
-
     const { params: { slug } } = context
-
     const post = data.filter((item) => item.title.toLowerCase().replaceAll(" ", "-") === slug)
-
     const posts = data.filter((_, i) => i < 3)
-
     return {
         props: { post: post[0], posts },
     }
