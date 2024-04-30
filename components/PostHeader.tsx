@@ -7,7 +7,7 @@ function Header(props: PostHeaderComponent) {
   return (
     <header className="w-full flex flex-col py-5 bg-[rgba(35,46,82,1)]">
       <Nav />
-      <div className="container flex flex-col  mx-auto my-32 p-10">
+      <div className="container flex flex-col  mx-auto my-8 p-10">
         <div className="flex items-center text-center">
           <Link href="/" type="button" className=" text-black bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             <FaAngleLeft />
