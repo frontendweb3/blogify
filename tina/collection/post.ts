@@ -7,7 +7,7 @@ const Post: Collection = {
   format: "mdx",
   ui: {
     router: ({ document }) => {
-      return `/posts/${document._sys.filename}`;
+      return `/demo/blog/${document._sys.filename}`;
     },
   },
   fields: [
