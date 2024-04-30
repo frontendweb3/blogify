@@ -19,9 +19,6 @@ export default function Home({ posts }: homePageProps) {
     <>
       <Header />
       <main className='container mx-auto flex flex-col p-3'>
-        <p className="text-4xl inline font-bold text-left ml-0  sm:ml-0 md:ml-10 lg:ml-10 xl:ml-10 2xl:ml-24  my-16 leading-[normal] text-[rgba(35,46,82,1)]">
-          All posts
-        </p>
         {
           posts?.map(
             (item: itemProps) => {

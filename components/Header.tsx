@@ -4,7 +4,7 @@ function Header(props: HeaderComponent) {
   return (
     <header className="w-full flex flex-col py-5 bg-[rgba(35,46,82,1)]">
       <Nav />
-      <div className="container flex flex-col mx-auto my-32 p-10">
+      <div className="container flex flex-col mx-auto my-8 p-10">
         {
           props.tag === "hidden" ? "" : <p className="text-sm sm:text-sm md:text-base lg:text-base xl:text-base 2xl:text-base font-semibold text-white uppercase inline mt-8">
             {props.tag?.replace("-", " ")}
