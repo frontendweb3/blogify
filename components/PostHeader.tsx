@@ -1,9 +1,11 @@
-import React from "react";
-import { FaAngleLeft } from "react-icons/fa";
-import Nav from "./Nav";
+import React, { ReactElement } from 'react';
 import Link from 'next/link';
-import Image from "next/image"
-function Header(props: PostHeaderComponent) {
+import Image from 'next/image';
+import { FaAngleLeft } from 'react-icons/fa';
+
+import Nav from './Nav';
+
+const Header: React.FC<PostHeaderComponent> = (props): ReactElement => {
   return (
     <header className="w-full flex flex-col py-5 bg-[rgba(35,46,82,1)]">
       <Nav />
@@ -32,7 +34,7 @@ function Header(props: PostHeaderComponent) {
       </div>
     </header>
   );
-}
+};
 
 interface PostHeaderComponent {
   title?: string;

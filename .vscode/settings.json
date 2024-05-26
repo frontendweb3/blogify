@@ -6,5 +6,8 @@
         "ITSM",
         "Rajdeep",
         "wireframes"
-    ]
+    ],
+    "editor.tabSize": 2,
+    "editor.tabCompletion": "on",
+    "circleci.persistedProjectSelection": []
 }

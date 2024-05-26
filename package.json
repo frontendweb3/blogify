@@ -9,7 +9,8 @@
     "dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"next dev\"",
     "build": "tinacms build && next build",
     "start": "tinacms build && next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "next lint --fix"
   },
   "dependencies": {
     "@types/node": "^20.9.0",

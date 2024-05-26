@@ -1,5 +1,5 @@
 import { defineConfig } from "tinacms";
-import Post from './collection/post';
+import Post from './collections/post';
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =

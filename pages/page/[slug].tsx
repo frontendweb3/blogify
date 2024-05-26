@@ -10,7 +10,7 @@ const Pages: React.FC<{ router: NextRouter }>  = props => {
 
   return (
     <>
-      <Header tag='hidden' title='About me' />
+      <Header category='hidden' title='About me' />
       <div className="my-12 prose prose-stone lg:prose-lg mx-auto">
         <p className="mb-3 font-light text-gray-500 dark:text-gray-400 first-line:uppercase first-line:tracking-widest first-letter:text-7xl first-letter:font-bold first-letter:text-gray-900 dark:first-letter:text-gray-100 first-letter:mr-3 first-letter:float-left">
           生息地は昭島市。<br/>
@@ -36,6 +36,6 @@ const Pages: React.FC<{ router: NextRouter }>  = props => {
       </div>
     </>
   );
-}
+};
 
 export default withRouter(Pages);
