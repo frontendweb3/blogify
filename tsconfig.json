@@ -17,6 +17,7 @@
     "paths": {
       "components":["./components"],
       "pages": ["./pages"],
+      "styles": ["./styles"],
       "tina": ["./tina"],
     },
     "baseUrl": ".",

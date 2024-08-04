@@ -32,6 +32,7 @@
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "^14.2.4",
+    "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
@@ -52,6 +53,11 @@
     "settings": {
       "react": {
         "version": "detect"
+      },
+      "import/resolver": {
+        "typescript": {
+          "project": "tsconfig.json"
+        }
       }
     },
     "plugins": [
@@ -67,23 +73,57 @@
     "rules": {
       "@next/next/no-img-element": "off",
       "@next/next/no-html-link-for-pages": "off",
-      "react/no-unescaped-entities": "off",
       "@next/next/no-page-custom-font": "off",
-      "indent": ["error", 2],
-      "quotes": ["error", "single"],
-      "jsx-quotes": ["error", "prefer-single"],
-      "semi": ["error", "always"],
-      "semi-style": ["error", "last"],
+      "indent": [
+        "error",
+        2
+      ],
+      "import/extensions": "off",
+      "jsx-quotes": [
+        "error",
+        "prefer-single"
+      ],
+      "no-extra-semi": "error",
+      "no-underscore-dangle": "off",
+      "no-unexpected-multiline": "error",
+      "no-unreachable": "error",
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "react/jsx-filename-extension": [
+        "error",
+        {
+          "extensions": [
+            "ts",
+            "tsx"
+          ]
+        }
+      ],
+      "react/function-component-definition": [
+        "error",
+        {
+          "namedComponents": "arrow-function"
+        }
+      ],
+      "react/destructuring-assignment": "off",
+      "react/jsx-props-no-spreading": "off",
+      "react/no-unescaped-entities": "off",
+      "semi": [
+        "error",
+        "always"
+      ],
+      "semi-style": [
+        "error",
+        "last"
+      ],
       "semi-spacing": [
         "error",
         {
           "after": true,
           "before": false
         }
-      ],
-      "no-extra-semi": "error",
-      "no-unexpected-multiline": "error",
-      "no-unreachable": "error"
+      ]
     }
   }
 }

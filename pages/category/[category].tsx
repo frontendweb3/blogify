@@ -10,7 +10,7 @@ import { PostFieldsWithFileName } from '../types';
 
 interface CategoryProps {
   category: string;
-  posts: PostFieldsWithFileName[];
+  posts?: PostFieldsWithFileName[];
 }
 
 const Category: React.FC<CategoryProps> = ({ posts, category }): ReactElement => (
@@ -18,7 +18,7 @@ const Category: React.FC<CategoryProps> = ({ posts, category }): ReactElement =>
     <Header title='hidden' category={`${category}`} />
     <main className='container mx-auto flex flex-col p-3'>
       {
-        posts.map(
+        posts?.map(
           (p) => (
             <Post
               key={p.id}
