@@ -1,9 +1,16 @@
-import Header from "../components/Header"
-import Post from '../components/Post';
-import Newsletter from '../components/Newsletter';
-import Pagination from '../components/Pagination';
-import {posts as data} from '../data/post';
-import dayjs from "dayjs";
+import React, { ReactElement } from 'react';
+import dayjs from 'dayjs';
+
+import Header from 'components/Header';
+import Post from 'components/Post';
+import Newsletter from 'components/Newsletter';
+import Pagination from 'components/Pagination';
+import client from 'tina/__generated__/client';
+import { PostFieldsWithFileName } from './types';
+
+interface HomePageProps {
+  posts: PostFieldsWithFileName[];
+}
 
 // sm: md: lg: xl: 2xl:
 /*
@@ -12,80 +19,56 @@ md	768px	@media (min-width: 768px) { ... }
 lg	1024px	@media (min-width: 1024px) { ... }
 xl	1280px	@media (min-width: 1280px) { ... }
 2xl	1536px	@media (min-width: 1536px) { ... }
-
 */
 
-export default function Home({ posts }: homePageProps) {
-
-  
-
+const Home: React.FC<HomePageProps> = ({ posts }): ReactElement => {
   return (
     <>
       <Header />
-
       <main className='container mx-auto flex flex-col p-3'>
-
-        <p className="text-4xl inline font-bold text-left ml-0  sm:ml-0 md:ml-10 lg:ml-10 xl:ml-10 2xl:ml-24  my-16 leading-[normal] text-[rgba(35,46,82,1)]">
-          All posts
-        </p>
-
         {
           posts?.map(
-            (item: itemProps) => {
-              let GetDate = dayjs(item.date).format("DD-MMM , YYYY")
-
-              return <Post key={item.id}
-                tag={item.tags[0]}
+            p => {
+              const GetDate = dayjs(p.date).format('DD-MMM , YYYY');
+              return <Post
+                filename={p.filename}
+                key={p.id}
+                category={p.categories?.[0] ?? ''}
+                tags={p.tags ?? []}
                 date={GetDate.toString()}
-                title={item.title}
-                description={item.description}
-                image={item.image}
-              />
+                title={p.title}
+                description={p.description ?? ''}
+                image={p.image ?? ''}
+              />;
             }
           )
         }
-
         <Pagination />
-
-
       </main>
-
-
       <Newsletter />
     </>
-  )
-}
+  );
+};
 
-export async function getStaticProps() {
-
+export const getStaticProps = async (): Promise<{ props: HomePageProps }> => {
+  const postsList = await client.queries.postConnection();
   return {
-    props: { posts:data },
-  }
+    props: {
+      posts: postsList.data.postConnection.edges?.map(p => {
+        return {
+          filename: p?.node?._sys.filename ?? '',
+          date: p?.node?.date ?? '',
+          title: p?.node?.title ?? '',
+          description: p?.node?.description ?? '',
+          image: p?.node?.image ?? '',
+          tags: [],
+          author: '',
+          categories: (p?.node?.categories ?? []),
+          id: p?.node?.id ?? '',
+        };
+      }) ?? []
+    },
+  };
+};
 
-}
-
-interface homePageProps {
-  posts: {
-    map: any;
-    date: string;
-    title: string;
-    description: string;
-    image: string;
-    tags: string[];
-    author: string;
-    category: string[];
-    id: string;
-  }
-}
-
-interface itemProps {
-  date: string;
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  author: string;
-  category: string[];
-  id: string;
-
-}
+export default Home;
