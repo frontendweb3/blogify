@@ -37,22 +37,23 @@ const ReadingPage: React.FC<ReadingPageProps> = (props): ReactElement => {
         authorName={data.author}
       />
 
-      <div className="my-10 mx-auto">
+      <div className='my-10 mx-auto'>
         <Image
-          height="250" width="500"
+          height='250'
+          width='500'
           src={data.image ?? ''}
           alt={data.title}
-          className="mx-auto h-[72%] w-[1424px]"
+          className='mx-auto h-[72%] w-[1424px]'
         />
       </div>
 
-      <div className="my-12 prose prose-stone lg:prose-lg mx-auto">
+      <div className='my-12 prose prose-stone lg:prose-lg mx-auto'>
         <h1 className='text-3xl m-8 text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
           {data.title}
         </h1>
-        <ContentSection content={data._body}></ContentSection>
+        <ContentSection content={data._body} />
       </div>
-      <AnotherPosts posts={props.posts}></AnotherPosts>
+      <AnotherPosts posts={props.posts} />
     </>
   );
 };

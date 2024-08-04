@@ -1,10 +1,14 @@
-import '../styles/globals.css';
-import type { AppProps } from 'next/app';
-import Footer from '../components/Footer';
+import React, { ReactElement } from 'react';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <> 
-            <Component {...pageProps} />
-            <Footer/>
-          </>;
-}
+import type { AppProps } from 'next/app';
+import Footer from 'components/Footer';
+import 'styles/globals.css';
+
+const App: React.FC<AppProps> = ({ Component, pageProps }): ReactElement => (
+  <>
+    <Component {...pageProps} />
+    <Footer />
+  </>
+);
+
+export default App;

@@ -1,0 +1,24 @@
+name: Check code format
+
+on:
+  push:
+    branches:
+      - staging
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.9.0'
+      - uses: actions/cache@v4
+        id: cache
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      - if: ${{ steps.cache.outputs.cache-hit != 'true' }}
+        run: yarn install
+      - run: yarn lint
