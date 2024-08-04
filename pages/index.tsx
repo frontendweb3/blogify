@@ -21,16 +21,16 @@ xl	1280px	@media (min-width: 1280px) { ... }
 2xl	1536px	@media (min-width: 1536px) { ... }
 */
 
-const Home: React.FC<HomePageProps> = ({ posts }): ReactElement => {
-  return (
-    <>
-      <Header />
-      <main className='container mx-auto flex flex-col p-3'>
-        {
-          posts?.map(
-            p => {
-              const GetDate = dayjs(p.date).format('DD-MMM , YYYY');
-              return <Post
+const Home: React.FC<HomePageProps> = ({ posts }): ReactElement => (
+  <>
+    <Header />
+    <main className='container mx-auto flex flex-col p-3'>
+      {
+        posts?.map(
+          (p) => {
+            const GetDate = dayjs(p.date).format('DD-MMM , YYYY');
+            return (
+              <Post
                 filename={p.filename}
                 key={p.id}
                 category={p.categories?.[0] ?? ''}
@@ -39,34 +39,32 @@ const Home: React.FC<HomePageProps> = ({ posts }): ReactElement => {
                 title={p.title}
                 description={p.description ?? ''}
                 image={p.image ?? ''}
-              />;
-            }
-          )
-        }
-        <Pagination />
-      </main>
-      <Newsletter />
-    </>
-  );
-};
+              />
+            );
+          },
+        )
+      }
+      <Pagination />
+    </main>
+    <Newsletter />
+  </>
+);
 
 export const getStaticProps = async (): Promise<{ props: HomePageProps }> => {
   const postsList = await client.queries.postConnection();
   return {
     props: {
-      posts: postsList.data.postConnection.edges?.map(p => {
-        return {
-          filename: p?.node?._sys.filename ?? '',
-          date: p?.node?.date ?? '',
-          title: p?.node?.title ?? '',
-          description: p?.node?.description ?? '',
-          image: p?.node?.image ?? '',
-          tags: [],
-          author: '',
-          categories: (p?.node?.categories ?? []),
-          id: p?.node?.id ?? '',
-        };
-      }) ?? []
+      posts: postsList.data.postConnection.edges?.map((p) => ({
+        filename: p?.node?._sys.filename ?? '',
+        date: p?.node?.date ?? '',
+        title: p?.node?.title ?? '',
+        description: p?.node?.description ?? '',
+        image: p?.node?.image ?? '',
+        tags: [],
+        author: '',
+        categories: (p?.node?.categories ?? []),
+        id: p?.node?.id ?? '',
+      })) ?? [],
     },
   };
 };

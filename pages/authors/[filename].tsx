@@ -28,21 +28,22 @@ const ReadingPage: React.FC<ReadingPageProps> = (props): ReactElement => {
     <>
       <PostHeader
         title={data.name}
-        tag={''}
+        tag=''
         date={dayjs(data.date).format('DD MMMM , YYYY')}
         authorName={data.name}
       />
 
-      <div className="my-10 mx-auto">
+      <div className='my-10 mx-auto'>
         <Image
-          height="250" width="500"
+          height='250'
+          width='500'
           src={data.image ?? ''}
           alt={data.name}
-          className="mx-auto h-[72%] w-[1424px]"
+          className='mx-auto h-[72%] w-[1424px]'
         />
       </div>
 
-      <div className="my-12 prose prose-stone lg:prose-lg mx-auto">
+      <div className='my-12 prose prose-stone lg:prose-lg mx-auto'>
         <h1 className='text-3xl m-8 text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
           {data.name}
         </h1>
