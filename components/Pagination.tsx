@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Link from 'next/link';
 
-function Pagination() {
+const Pagination: React.FC = (): ReactElement => {
   return (
     <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row 2xl:flex-row items-center w-5/6 sm:w-5/6 md:w-4/6 lg:w-4/6 xl:w-4/6 2xl:w-3/6 justify-evenly mx-auto">
       <span className="text-sm text-gray-700 dark:text-gray-400">

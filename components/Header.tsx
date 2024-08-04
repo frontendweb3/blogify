@@ -1,6 +1,17 @@
+import React, { ReactElement } from 'react';
 import Nav from './Nav';
 
-function Header(props: HeaderComponent) {
+interface HeaderComponent {
+  category?: string;
+  title?: string;
+}
+
+const defaultProps: HeaderComponent = {
+  category: '👋 Rajdeep Singh',
+  title: 'Start your front-end developer career journey with me.'
+};
+
+const Header: React.FC<HeaderComponent> = (props = defaultProps): ReactElement => {
   return (
     <header className="w-full flex flex-col py-5 bg-[rgba(35,46,82,1)]">
       <Nav />
@@ -18,16 +29,6 @@ function Header(props: HeaderComponent) {
       </div>
     </header>
   );
-}
-
-Header.defaultProps = {
-  category: '👋 Rajdeep Singh',
-  title: 'Start your front-end developer career journey with me.'
-};
-
-interface HeaderComponent {
-  category?: string;
-  title?: string;
 }
 
 export default Header;

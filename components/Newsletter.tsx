@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 // sm: md: lg: xl: 2xl:
 
-function Newsletter() {
+const Newsletter: React.FC = (): ReactElement => {
   return (
     <div className='container mx-auto my-10'>
       <div className="p-0 sm:p-0 md:p-0 lg:p-3 xl:p-3 2xl:p-3  flex flex-col justify-center bg-[rgba(35,46,82,1)] rounded-[10px]  lg:mx-24 xl:mx-24 2xl:mx-24" >

@@ -1,14 +1,13 @@
+import React, { ReactElement } from 'react';
 import Link from 'next/link';
-import React from 'react';
 import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
-  FaTwitter
+  FaTwitter,
 } from 'react-icons/fa';
 
-function Nav() {
-
+const Nav: React.FC = (): ReactElement => {
   return (
     <div className="container flex flex-col items-center  sm:flex-col md:flex-row  lg:flex-row  xl:flex-row  2xl:flex-row justify-center sm:justify-center md:justify-between lg:justify-between xl:justify-between 2xl:justify-between mx-auto py-3 px-0 sm:px-0 md:px-3 lg:px-3 xl:px-3 2xl:px-3 my-4">
       <a href="/" className="text-2xl text-center text-white">Blogify</a>
