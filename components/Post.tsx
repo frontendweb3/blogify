@@ -4,6 +4,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dayjs from 'dayjs';
 
+interface PostProps {
+  category: string;
+  tags: (string | null)[];
+  date: string;
+  title: string;
+  description: string;
+  image: string;
+  filename?: string;
+}
+
 const Post: React.FC<PostProps> = (props): ReactElement => (
   <div
     className='inline-flex my-24 flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row 2xl:flex-row justify-center  items-center mx-auto  text-[rgba(35,46,82,1)]  transition-all'
@@ -41,17 +51,10 @@ const Post: React.FC<PostProps> = (props): ReactElement => (
       alt={props.title}
       className='rounded-lg bg-cover bg-no-repeat bg-center w-full sm:w-full md:w-full  lg:w-[300px] xl:w-[300px] 2xl:w-[300px] h-[210px] transition-all'
     />
+    <div>
+      {props.tags}
+    </div>
   </div>
 );
-
-interface PostProps {
-  category: string;
-  tags: (string | null)[];
-  date: string;
-  title: string;
-  description: string;
-  image: string;
-  filename?: string;
-}
 
 export default Post;

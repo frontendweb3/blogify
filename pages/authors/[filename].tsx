@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { GetStaticPropsContext } from 'next';
 import Image from 'next/image';
 import dayjs from 'dayjs';
-import { useTina, tinaField } from 'tinacms/dist/react';
+import { useTina } from 'tinacms/dist/react';
 
 import PostHeader from 'components/PostHeader';
 import client from 'tina/__generated__/client';
@@ -15,14 +15,11 @@ interface ReadingPageProps {
 }
 
 const ReadingPage: React.FC<ReadingPageProps> = (props): ReactElement => {
-  const { data, isClient } = useTina<AuthorFields>({
+  const { data } = useTina<AuthorFields>({
     query: props.query,
     variables: { relativePath: props.relativePath },
     data: props.data,
   });
-
-  console.debug(data);
-  console.info(`client: ${isClient}`);
 
   return (
     <>

@@ -13,7 +13,7 @@ interface CategoryProps {
   posts?: PostFieldsWithFileName[];
 }
 
-const Category: React.FC<CategoryProps> = ({ posts, category }): ReactElement => (
+const Category: React.FC<CategoryProps> = ({ category, posts = [] }): ReactElement => (
   <>
     <Header title='hidden' category={`${category}`} />
     <main className='container mx-auto flex flex-col p-3'>
