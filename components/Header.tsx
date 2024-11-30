@@ -1,43 +1,107 @@
-import Nav from "./Nav";
+"use client"
 
-function Header(props: HeaderComponent) {
+import * as React from "react"
+import Link from 'next/link'
+import { cn } from "@/lib/utils"
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu"
+import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/theme/theme-toggle";
+import { Facebook, Instagram, Twitter, Linkedin, Logo } from "@/components/icons";
 
+export function Header() {
   return (
-    <header className="w-full flex flex-col py-5 bg-[rgba(35,46,82,1)]">
+    <header className="container py-3 grid grid-cols-1 grid-rows-1 xl:grid-cols-6 gap-4 flex-wrap items-center justify-around md:justify-between mx-auto">
 
-      <Nav />
+      <Button variant={"link"} className="block mx-auto h-auto [&_svg]:!size-8" asChild>
+        <Link href="/" className="flex items-center !text-4xl"> <Logo /> Blogify</Link>
+      </Button>
 
-      <div className="container flex flex-col mx-auto my-32 p-10">
+      <NavigationMenu className="xl:col-span-3 mx-auto w-full">
+        <NavigationMenuList className="flex flex-wrap">
+          <NavigationMenuItem>
+            <Link href="/" className="text-background">
+              <Button variant="link">Home</Button>
+            </Link>
+          </NavigationMenuItem>
 
+          <NavigationMenuItem>
+            <Link href="/tag/programming" className="text-background">
+              <Button variant="link">Programming</Button>
+            </Link>
+          </NavigationMenuItem>
 
-        {
-          props.tag === "hidden" ? "" : <p className="text-sm sm:text-sm md:text-base lg:text-base xl:text-base 2xl:text-base font-semibold text-white uppercase inline mt-8">
-            {props.tag?.replace("-", " ")}
-          </p>
-        }
+          <NavigationMenuItem>
+            <Link href="/tag/photography" className="text-background">
+              <Button variant="link">Photography</Button>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/tag/smart-phone" className="text-background">
+              <Button variant="link">Smart Phone</Button>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/pages/about" className="text-background">
+              <Button variant="link">About</Button>
+            </Link>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
 
+      <div className="xl:col-span-2 mx-auto xl:col-start-5 gap-4 xl:gap-2 flex flex-row flex-wrap">
+        <Button variant="link" asChild>
+          <Link href={"#"}>
+            <Facebook />
+          </Link>
+        </Button>
 
-        {
-          props.title === "hidden" ? " " : <p className="font-bold text-left text-white inline mt-4 text-[32px] sm:text-[42px] md:text-[48px] lg:text-[52px] xl:text-[52px] 2xl:text-[52px]">
-            {props.title}
-          </p>
-        }
+        <Button variant="link" asChild>
+          <Link href={"#"}>
+            <Instagram />
+          </Link>
+        </Button>
 
+        <Button variant="link" asChild>
+          <Link href={"https://x.com/FrontendWeb3"}>
+            <Twitter />
+          </Link>
+        </Button>
 
+        <Button variant="link" asChild>
+          <Link href={"https://www.linkedin.com/company/frontendweb"}>
+            <Linkedin />
+          </Link>
+        </Button>
 
+        <Button className="rounded-2xl"> Subscrible </Button>
+        <ThemeToggle />
       </div>
     </header>
-  );
+  )
 }
 
-Header.defaultProps = {
-  tag: "👋 Rajdeep Singh",
-  title: "Start your front-end developer career journey with me."
-};
-
-interface HeaderComponent {
-  tag?: string;
-  title?: string;
-}
-
-export default Header;
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  )
+})
+ListItem.displayName = "ListItem"
