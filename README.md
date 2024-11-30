@@ -4,16 +4,26 @@ Blogify is MIT open-source nextjs and tailwind css based template to build a blo
 ## Demo
 
 ### Home page
-![Home page](/demo/home.png)
-
-### List page
-![Home page](/demo/list.png)
+![Home page](/.github/blogify.png)
 
 ### Reading page
-![Reading page](/demo/reading.png)
+![Reading page](/.github/blogify-reading.png)
 
-### Tag page
-![Tag page](/demo/tag.png)
+### Tags page
+![Home page](/.github/blogify-tags.png)
+
+### Pages page
+![Page](/.github/blogify-tags.png)
+
+### Card
+![Card](/.github/blogify-card.png)
+
+### List
+![Card](/.github/blogify-card-list.png)
+
+### Newsletter
+![Newsletter](/.github/blogify-newsletter.png)
+
 
 
 ### Project folder
