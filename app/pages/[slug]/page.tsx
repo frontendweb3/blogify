@@ -25,12 +25,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
   return (
     <>
-      <Card className="max-w-6xl border-none shadow-none flex flex-col mx-auto mt-12">
+      <Card className="max-w-6xl border-none bg-none shadow-none flex flex-col mx-auto mt-12">
         <CardContent>
           <div className="flex flex-row items-center text-center mb-3">
             <Button className='rounded-2xl' asChild>
               <Link href="/">
-                <ChevronLeft />
+                <ChevronLeft /> Back
               </Link>
             </Button>
           </div>

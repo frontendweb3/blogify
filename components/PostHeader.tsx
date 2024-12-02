@@ -15,7 +15,7 @@ export function ReadHeader({ item }: { item: Post }) {
         <div className="flex flex-row items-center text-center mb-3">
           <Button className='rounded-2xl' asChild>
             <Link href="/">
-              <ChevronLeft />
+              <ChevronLeft /> Back
             </Link>
           </Button>
           <Label className="font-bold text-left mx-2">
