@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}  dark:bg-grid-small-white/[0.1] bg-grid-small-black/[0.1]`}>
+      <body className={`${geistSans.variable} ${geistMono.variable}  dark:bg-grid-small-white/5 bg-grid-small-black/5`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
