@@ -1,11 +1,17 @@
+import Link from '@/node_modules/next/link';
 import React from 'react';
+import { Button } from '@/components/ui/button';
 
 function Footer() {
-    return (
-        <footer className="my-16 flex flex-col justify-center w-6/6 sm:w-[610px] md:w-[610px] lg:w-[610px] xl:w-[610px] 2xl:w-[610px] p-6 mx-auto  border-t-2 border-grey-100" >
-            <span className="text-center text-base"> Copyright by <a href="https://github.com/frontendweb3"> Frontend web </a> </span>
-        </footer>
-    );
+  return (
+    <footer className="container my-16 flex flex-col justify-center p-6 mx-auto border-t-2 border-border" >
+      <Button variant={"link"} className="text-md !mx-0 !px-0 mt-3" asChild>
+        <Link className='text-center' target={"_blank"} href={"https://github.com/frontendweb3"}>
+          CopyRight By @Frontend web
+        </Link>
+      </Button>
+    </footer>
+  );
 }
 
 export default Footer;
