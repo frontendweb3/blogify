@@ -12,8 +12,13 @@ export function Header() {
   return (
     <header className="container py-3 grid grid-cols-1 grid-rows-1 xl:grid-cols-6 gap-4 flex-wrap items-center justify-around md:justify-between mx-auto">
 
-      <Button variant={"link"} className="block mx-auto h-auto [&_svg]:!size-8" asChild>
-        <Link href="/" className="flex items-center !text-4xl"> <Logo /> Blogify</Link>
+      <Button variant="link" className="[&_svg]:size-8 stroke" asChild>
+        <Link href="/" className="flex items-center">
+          <>
+            <Logo />   <span className="self-center text-2xl font-semibold whitespace-nowrap">Blogify</span>
+          </>
+        </Link>
+
       </Button>
 
       <NavigationMenu className="xl:col-span-3 mx-auto w-full">
