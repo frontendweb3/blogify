@@ -25,10 +25,9 @@ export function BlogCard({ item }: { item: Post }) {
           <CardTitle className="text-2xl lg:text-3xl font-bold leading-tight">
             {item.title}
           </CardTitle>
-          <CardDescription className="text-md lg:text-xl text-muted-foreground">
+          <CardDescription className="text-md lg:text-xl font-medium text-card-foreground/90">
             {item.description}
           </CardDescription>
-
           <Button variant="link" className="text-md !mx-0 !px-0 mt-3" asChild>
             <Link href={`/read/${slug}`}><ChevronRight /> Read More </Link>
           </Button>
