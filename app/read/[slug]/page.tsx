@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { BlogCard } from '@/components/Card';
 import { GetAllPosts, GetPost, RelatedPosts } from '@/data';
+import { Asterisk } from 'lucide-react';
 
 export const generateStaticParams = async () => GetAllPosts().map((post) => ({ slug: post.slug }))
 
@@ -83,18 +84,26 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         <p>Consectetur aliqua eu veniam consequat eu adipisicing id ullamco incididunt. Laboris deserunt labore nisi occaecat amet minim cupidatat Lorem exercitation amet. Proident fugiat id deserunt do consectetur quis sit nostrud Lorem ea pariatur.</p>
         <p> Occaecat et esse sunt dolore nisi aliquip et non do sint. Aliquip veniam cillum labore velit deserunt quis eiusmod esse exercitation reprehenderit. Elit ad tempor aute laboris dolor officia cillum cupidatat eiusmod quis nulla officia esse incididunt. Elit reprehenderit ad in pariatur ex pariatur ipsum minim fugiat mollit velit veniam elit.</p>
       </article>
-      <Newsletter />
-      <div className="mt-28 mx-auto container">
-        <h1 className="text-3xl font-extrabold lg:text-6xl"> Related Posts </h1>
-        {
-          getRelatedPosts?.map(
-            (item) => {
-              return <BlogCard key={item.id} item={item} />
-            }
-          )
-        }
+
+      <div className="my-10 flex w-full items-center rounded-full">
+        <div className="flex-1 border-b border-fd-border"></div>
+        <span className=" flex flex-row text-lg font-semibold leading-8 px-8 py-3"> <Asterisk /> <Asterisk /> <Asterisk /> </span>
+        <div className="flex-1 border-b border-fd-border"></div>
       </div>
 
+      <Newsletter />
+      {
+        getRelatedPosts.length !== 0 && <div className="mt-28 mx-auto container">
+          <h1 className="text-3xl font-extrabold lg:text-6xl"> Related Posts </h1>
+          {
+            getRelatedPosts?.map(
+              (item) => {
+                return <BlogCard key={item.id} item={item} />
+              }
+            )
+          }
+        </div>
+      }
     </>
   );
 }

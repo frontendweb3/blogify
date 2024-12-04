@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { Card, CardTitle, CardContent } from "@/components/ui/card";
-import { ChevronLeft } from "lucide-react";
+import { Asterisk, ChevronLeft } from "lucide-react";
 import { Button } from '@/components/ui/button';
+import { Newsletter } from '@/components/Newsletter';
 
 // pages 
 const pages = [{ slug: "about" }]
@@ -79,6 +80,15 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         <p>Consectetur aliqua eu veniam consequat eu adipisicing id ullamco incididunt. Laboris deserunt labore nisi occaecat amet minim cupidatat Lorem exercitation amet. Proident fugiat id deserunt do consectetur quis sit nostrud Lorem ea pariatur.</p>
         <p> Occaecat et esse sunt dolore nisi aliquip et non do sint. Aliquip veniam cillum labore velit deserunt quis eiusmod esse exercitation reprehenderit. Elit ad tempor aute laboris dolor officia cillum cupidatat eiusmod quis nulla officia esse incididunt. Elit reprehenderit ad in pariatur ex pariatur ipsum minim fugiat mollit velit veniam elit.</p>
       </article>
+
+      <div className="my-10 flex w-full items-center rounded-full">
+        <div className="flex-1 border-b border-fd-border"></div>
+        <span className=" flex flex-row text-lg font-semibold leading-8 px-8 py-3"> <Asterisk /> <Asterisk /> <Asterisk /> </span>
+        <div className="flex-1 border-b border-fd-border"></div>
+      </div>
+
+      <Newsletter />
+
     </>
   );
 }
