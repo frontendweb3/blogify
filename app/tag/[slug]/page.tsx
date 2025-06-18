@@ -1,42 +1,60 @@
-import { BlogCard } from '@/components/Card';
+import { BlogCard } from "@/components/blog_card";
 import { GetTags, GetTagsPost } from "@/data";
 import type { Post } from "@/types";
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params
-  return { title: `Articles Related to ${slug?.trim().replaceAll(" ", "-")}` }
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Tag } from "lucide-react";
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  return { title: `Articles Related to ${slug?.trim().replaceAll(" ", "-")}` };
 }
 
 export async function generateStaticParams() {
-  return GetTags()
+  return GetTags();
 }
 
-
-export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
-  const slug = (await params).slug
-  const posts = await GetTagsPost(slug)
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const slug = (await params).slug;
+  const posts = await GetTagsPost(slug);
   if (posts.length === 0) {
-    notFound()
+    notFound();
   }
+  const getTag = slug.replaceAll("-", " ");
   return (
-    <>
-      <div className="container my-24 px-4 mx-auto">
-
-        <h2 className="my-8 text-3xl font-bold capitalize">
-          Articles Related to {slug.replaceAll("-", " ")}
-        </h2>
+    <div className="container overflow-x-hidden py-24">
+      <div className="mb-4 flex flex-col justify-between md:mb-14 lg:mb-16">
+        <Breadcrumb className="mb-5">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage className="flex flex-row items-center gap-x-3">
+                {" "}
+                <Tag size={12} /> {getTag}
+              </BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
       </div>
-
-      <div className="mt-8 mx-auto container">
-        {
-          posts.map((item: Post) => <BlogCard item={item} key={item.id} />)
-        }
-
-      </div>
-
-    </>
-
-  )
+      <BlogCard posts={posts} />
+    </div>
+  );
 }
