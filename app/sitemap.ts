@@ -4,7 +4,7 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   const allPosts = GetAllPosts();
   const getURL = process.env.BASE_URL && "http://localhost:3000";
-
+  console.log("getURL :", getURL);
   return allPosts.map((post) => {
     return {
       url: `${getURL}/read/${post.slug}`,
