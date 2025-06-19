@@ -26,7 +26,7 @@ export function Newsletter() {
         <CardDescription className="mt-2">
           Subscribe to our newsletter & stay updates
         </CardDescription>
-        <div className="mx-auto mt-7 flex w-full max-w-sm flex-col items-center gap-6 bg-blue-950 md:flex-row">
+        <div className="mx-auto mt-7 flex w-full max-w-lg flex-col items-center gap-6 md:flex-row">
           <Input
             type="email"
             className="rounded-sm bg-black p-2 text-white"
