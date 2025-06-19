@@ -1,7 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import { Card, CardTitle, CardContent } from "@/components/ui/card";
-import { Asterisk, CalendarClockIcon, ChevronLeft } from "lucide-react";
+import {
+  Asterisk,
+  CalendarClockIcon,
+  ChevronLeft,
+  StickyNote,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Newsletter } from "@/components/Newsletter";
 import {
@@ -45,7 +50,10 @@ export default async function Page({
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>{getTitle}</BreadcrumbPage>
+              <BreadcrumbPage className="flex flex-row items-center gap-x-2">
+                <StickyNote size={12} />
+                {getTitle}
+              </BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
