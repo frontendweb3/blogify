@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { ChevronLeft, Lightbulb, Tag } from "lucide-react";
+import { ChevronLeft, FileText, Lightbulb, Tag } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { GetAllPosts, GetPost, RelatedPosts } from "@/data";
@@ -56,10 +56,13 @@ export default async function Page({
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>Blog</BreadcrumbPage>
+              <BreadcrumbPage className="flex items-center gap-x-2">
+                {" "}
+                <FileText size={12} /> Blog
+              </BreadcrumbPage>
             </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
+            <BreadcrumbSeparator className="hidden md:inline-flex" />
+            <BreadcrumbItem className="hidden md:inline-flex">
               <BreadcrumbPage>{post.title}</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
@@ -74,7 +77,7 @@ export default async function Page({
           </h3>
           <div className="flex items-center gap-3 text-sm md:text-base">
             <Avatar className="h-8 w-8 border">
-              <AvatarImage src={"/images/joseph-gonzalez.jpg"} />
+              <AvatarImage src={"/images/user.png"} />
               <AvatarFallback>{post.author}</AvatarFallback>
             </Avatar>
             <span className="font-medium">{post.author}</span>
