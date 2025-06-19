@@ -50,7 +50,7 @@ export default async function Page({
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage className="flex flex-row items-center gap-x-2">
+              <BreadcrumbPage className="flex flex-row items-center gap-x-2 capitalize">
                 <StickyNote size={12} />
                 {getTitle}
               </BreadcrumbPage>

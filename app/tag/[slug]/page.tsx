@@ -46,7 +46,7 @@ export default async function Page({
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage className="flex flex-row items-center gap-x-3">
+              <BreadcrumbPage className="flex flex-row items-center gap-x-3 capitalize">
                 {" "}
                 <Tag size={12} /> {getTag}
               </BreadcrumbPage>

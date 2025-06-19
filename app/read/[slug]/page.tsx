@@ -63,7 +63,9 @@ export default async function Page({
             </BreadcrumbItem>
             <BreadcrumbSeparator className="hidden md:inline-flex" />
             <BreadcrumbItem className="hidden md:inline-flex">
-              <BreadcrumbPage>{post.title}</BreadcrumbPage>
+              <BreadcrumbPage className="capitalize">
+                {post.title}
+              </BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
