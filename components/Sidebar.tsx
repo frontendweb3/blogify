@@ -7,6 +7,7 @@ import {
   HeartPulse,
   Camera,
   CodeXml,
+  CircleDot,
 } from "lucide-react";
 
 import {
@@ -62,7 +63,7 @@ export function SidebarApp() {
     <Sidebar className="items-center">
       <SidebarHeader className="relative">
         <div className="mx-auto mt-12 inline-flex flex-row items-center gap-x-3">
-          <BookOpenText size={24} />
+          <CircleDot size={22} />
           <Link
             href="/"
             className="flex self-center text-2xl font-semibold whitespace-nowrap"
@@ -73,7 +74,7 @@ export function SidebarApp() {
         </div>
         {isMobile && <SidebarClose />}
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="item-center">
         <SidebarGroup>
           <SidebarGroupLabel>Navbar</SidebarGroupLabel>
           <SidebarGroupContent>
