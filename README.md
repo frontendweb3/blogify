@@ -1,30 +1,51 @@
-# Getting Started
+# Blogify
 
-Blogify is MIT open-source nextjs and tailwind css based template to build a blog with markdown.
+The Blogify is an open-source blogging template created with Next.js 15, TypeScript, a Rest API, Shadcn UI, and Tailwind CSS.
+
+Check out the demo of the blogify template.
+
 ## Demo
 
+[![Demo](/.github/open-blog-demo.gif)](https://blogify-ten.vercel.app/)
+
+## Our Template Stack
+
+- Next.js
+- Tailwind CSS
+- TypeScript
+- Rest API
+- Shadcn UI
+
 ### Home page
-![Home page](/.github/blogify.png)
----
+
+## ![Home page](/.github/blogify.png)
+
 ### Reading page
-![Reading page](/.github/blogify-reading.png)
----
+
+## ![Reading page](/.github/blogify-reading.png)
+
 ### Tags page
-![Home page](/.github/blogify-tags.png)
----
+
+## ![Home page](/.github/blogify-tags.png)
+
 ### Pages page
-![Page](/.github/blogify-tags.png)
----
+
+## ![Page](/.github/blogify-tags.png)
+
 ### Card
-![Card](/.github/blogify-card.png)
----
+
+## ![Card](/.github/blogify-card.png)
+
 ### List
-![Card](/.github/blogify-card-list.png)
----
+
+## ![Card](/.github/blogify-card-list.png)
+
 ### Newsletter
+
 ![Newsletter](/.github/blogify-newsletter.png)
 
 ### Project folder
+
 ```bash
 .
 ├── blogify.png
@@ -72,6 +93,7 @@ Blogify is MIT open-source nextjs and tailwind css based template to build a blo
 
 9 directories, 33 files
 ```
+
 ## Start with blogify
 
 ```bash
@@ -95,8 +117,8 @@ yarn dev
 ```
 
 ## Upcoming change
+
 - Adding content layer support
 - Search bar support
 - Adding dark mode theme support
-- SEO support 
-
+- SEO support
