@@ -16,7 +16,7 @@ export function Footer({
   ],
 }: Footer2Props) {
   return (
-    <footer className="container">
+    <footer className="container mx-auto max-w-6xl">
       <div className="my-14 flex flex-col items-center justify-between gap-4 border-t pt-8 text-sm font-medium sm:flex-row">
         <p>{copyright}</p>
         <ul className="flex gap-4">
