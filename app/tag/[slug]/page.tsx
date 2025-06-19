@@ -37,7 +37,7 @@ export default async function Page({
   }
   const getTag = slug.replaceAll("-", " ");
   return (
-    <div className="container overflow-x-hidden py-24">
+    <div className="container py-24">
       <div className="mb-4 flex flex-col justify-between md:mb-14 lg:mb-16">
         <Breadcrumb className="mb-5">
           <BreadcrumbList>
@@ -54,7 +54,11 @@ export default async function Page({
           </BreadcrumbList>
         </Breadcrumb>
       </div>
-      <BlogCard posts={posts} />
+      <div className="mx-auto grid grid-cols-1 gap-5 lg:grid-cols-2">
+        {posts.map((post) => (
+          <BlogCard key={post.id} post={post} />
+        ))}
+      </div>
     </div>
   );
 }
