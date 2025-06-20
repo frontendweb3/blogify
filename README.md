@@ -16,85 +16,23 @@ Check out the demo of the blogify template.
 - Rest API
 - Shadcn UI
 
-### Home page
+## Pictures
 
-## ![Home page](/.github/blogify.png)
+![Home page](/.github/blogify.png)
 
-### Reading page
+![Reading page](/.github/blogify-reading.png)
 
-## ![Reading page](/.github/blogify-reading.png)
+![pages](/.github/blogify-pages.png)
 
-### Tags page
+![Tags page](/.github/blogify-tags.png)
 
-## ![Home page](/.github/blogify-tags.png)
-
-### Pages page
-
-## ![Page](/.github/blogify-tags.png)
-
-### Card
-
-## ![Card](/.github/blogify-card.png)
-
-### List
-
-## ![Card](/.github/blogify-card-list.png)
-
-### Newsletter
+![Card](/.github/blogify-card.png)
 
 ![Newsletter](/.github/blogify-newsletter.png)
 
-### Project folder
+## Clone Repository
 
-```bash
-.
-├── blogify.png
-├── CODE_OF_CONDUCT.md
-├── components
-│   ├── Blockquote.tsx
-│   ├── Footer.tsx
-│   ├── Header.tsx
-│   ├── Nav.tsx
-│   ├── Newsletter.tsx
-│   ├── PostHeader.tsx
-│   ├── Post.tsx
-│   └── ReadMore.tsx
-├── data
-│   └── post.ts
-├── demo
-│   ├── blogify.png
-│   ├── home.png
-│   ├── list.png
-│   ├── reading.png
-│   └── tag.png
-├── LICENSE
-├── next.config.js
-├── next-env.d.ts
-├── package.json
-├── pages
-│   ├── _app.tsx
-│   ├── _document.tsx
-│   ├── index.tsx
-│   ├── pages
-│   ├── [slug].tsx
-│   └── tag
-├── pnpm-lock.yaml
-├── postcss.config.js
-├── prettier.config.js
-├── public
-│   ├── favicon.ico
-│   └── images
-├── README.md
-├── styles
-│   └── globals.css
-├── tailwind.config.js
-├── tsconfig.json
-└── yarn.lock
-
-9 directories, 33 files
-```
-
-## Start with blogify
+First, clone the blogify repository from GitHub using the following command:
 
 ```bash
 
@@ -118,7 +56,4 @@ yarn dev
 
 ## Upcoming change
 
-- Adding content layer support
 - Search bar support
-- Adding dark mode theme support
-- SEO support
