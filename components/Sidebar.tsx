@@ -24,9 +24,10 @@ import {
 } from "@/components/ui/sidebar";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { Github, Linkedin, Twitter } from "./icons";
+import { Github, Linkedin, Logo, Twitter } from "./icons";
 import { SidebarClose } from "./sidebar_close";
 import { useIsMobile } from "@/hooks/use-mobile";
+import Image from "next/image";
 
 // Menu items.
 const items = [
@@ -63,7 +64,7 @@ export function SidebarApp() {
     <Sidebar className="items-center">
       <SidebarHeader className="relative">
         <div className="mx-auto mt-12 inline-flex flex-row items-center gap-x-3">
-          <CircleDot size={22} />
+          <Logo />
           <Link
             href="/"
             className="flex self-center text-2xl font-semibold whitespace-nowrap"
