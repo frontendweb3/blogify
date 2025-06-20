@@ -16,7 +16,7 @@ export default function Page() {
   const posts = GetAllPosts();
   return (
     <div className="container py-24">
-      <div className="mb-16 flex flex-col items-start justify-between border-b border-border px-4 py-6 sm:px-8 md:flex-row md:items-center">
+      <div className="mb-16 flex flex-col items-start justify-between border-b border-border py-6 md:flex-row md:items-center">
         <div className="flex flex-col gap-y-3">
           <h1 className="text-4xl font-bold text-foreground">Blog</h1>
           <p className="group flex items-center gap-1 text-sm font-medium md:text-base lg:text-lg">
