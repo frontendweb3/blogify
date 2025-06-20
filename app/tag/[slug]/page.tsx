@@ -11,7 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Tag } from "lucide-react";
+import { Home, Tag } from "lucide-react";
 export async function generateMetadata({
   params,
 }: {
@@ -42,7 +42,13 @@ export default async function Page({
         <Breadcrumb className="mb-5">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+              <BreadcrumbLink
+                className="flex flex-row items-center gap-x-3 capitalize"
+                href="/"
+              >
+                <Home size={12} />
+                Home
+              </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>

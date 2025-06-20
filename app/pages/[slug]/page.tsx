@@ -5,6 +5,7 @@ import {
   Asterisk,
   CalendarClockIcon,
   ChevronLeft,
+  Home,
   StickyNote,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -46,7 +47,13 @@ export default async function Page({
         <Breadcrumb className="mb-5 capitalize">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+              <BreadcrumbLink
+                className="flex flex-row items-center gap-x-3 capitalize"
+                href="/"
+              >
+                <Home size={12} />
+                Home
+              </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
